@@ -2,10 +2,11 @@ import exppress from 'express'
 import mongoose from 'mongoose';
 import cors from 'cors';
 const app = exppress();
+import dotenv from 'dotenv'
 import Task from './modles/task.js';
+dotenv.config();
 
-
-const DB_URL = 'mongodb+srv://abhishekkaushal2526:gkpgPZee6r5g6I3s@cluster0.crzmewz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const DB_URL = process.env.DB_URL;
 
 const connectDb = async () => {
     try {
