@@ -22,7 +22,7 @@ export class Tasks implements OnInit {
 
   //  get all task function
   getTasks() {
-    this.http.get("http://localhost:3000/").subscribe({
+    this.http.get("https://todo-angular-bdz3.onrender.com/").subscribe({
       next: (responce: any) => {
         console.log(responce);
         this.tasks = responce;
@@ -38,7 +38,7 @@ export class Tasks implements OnInit {
   handleSubmit() {
     if (this.form.task.length > 0) {
       console.log(this.form);
-      this.http.post("http://localhost:3000/", this.form).subscribe({
+      this.http.post("https://todo-angular-bdz3.onrender.com/", this.form).subscribe({
         next: (responce: any) => {
           console.log("this is post responce", responce);
           this.getTasks();
@@ -53,7 +53,7 @@ export class Tasks implements OnInit {
 
   // handle Delete function 
   handleDelete(id: any) {
-    this.http.delete(`http://localhost:3000/?id=${id}`).subscribe({
+    this.http.delete(`https://todo-angular-bdz3.onrender.com/?id=${id}`).subscribe({
       next: (responce: any) => {
         console.log(responce);
         alert("Data Successfully Deleted");
